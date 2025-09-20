@@ -1,455 +1,515 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Production Option E - OKR Presentation</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Production Option E - OKR Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
 
-    .slide {
-      width: 1920px;
-      height: 1080px;
-      background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0a0a0a 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 80px;
-      page-break-after: always;
-      position: relative;
-      overflow: hidden;
-    }
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0a0a0a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .slide::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
-      pointer-events: none;
-    }
+        /* Responsive for larger screens */
+        @media screen and (min-width: 1400px) {
+            .slide {
+                padding: 60px;
+            }
+        }
 
-    .slide-content {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(20px);
-      border-radius: 48px;
-      padding: 80px;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    }
+        @media screen and (min-width: 1920px) {
+            .slide {
+                padding: 80px;
+            }
+        }
 
-    /* Title Slide */
-    .title-slide .slide-content {
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-    }
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 70%);
+            pointer-events: none;
+        }
 
-    .title-slide h1 {
-      font-size: 96px;
-      font-weight: 800;
-      margin-bottom: 40px;
-      background: linear-gradient(135deg, #fff 0%, #888 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1.1;
-      letter-spacing: -2px;
-    }
+        .slide-content {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px;
+            width: 90%;
+            max-width: 1400px;
+            height: 85%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
 
-    .subtitle {
-      font-size: 36px;
-      color: rgba(255, 255, 255, 0.6);
-      margin-bottom: 60px;
-      font-weight: 300;
-    }
+        @media screen and (min-width: 768px) {
+            .slide-content {
+                border-radius: 32px;
+                padding: 50px;
+            }
+        }
 
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 40px;
-    }
+        @media screen and (min-width: 1400px) {
+            .slide-content {
+                border-radius: 48px;
+                padding: 60px;
+            }
+        }
 
-    .team-member {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      border-radius: 24px;
-      font-size: 24px;
-      font-weight: 500;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
+        @media screen and (min-width: 1920px) {
+            .slide-content {
+                padding: 80px;
+            }
+        }
 
-    /* Section Headers */
-    .section-header {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
-      align-items: center;
-      text-align: center;
-    }
+        /* Title Slide */
+        .title-slide .slide-content {
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+        }
 
-    .section-number {
-      font-size: 200px;
-      font-weight: 900;
-      opacity: 0.1;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 0;
-    }
+        .title-slide h1 {
+            font-size: clamp(40px, 5.5vw, 72px);
+            font-weight: 800;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
 
-    .section-title {
-      font-size: 72px;
-      font-weight: 700;
-      position: relative;
-      z-index: 1;
-      background: linear-gradient(135deg, #fff 0%, #aaa 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 30px;
-    }
+        .subtitle {
+            font-size: clamp(20px, 2.5vw, 28px);
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
 
-    .section-subtitle {
-      font-size: 32px;
-      color: rgba(255, 255, 255, 0.5);
-      font-weight: 300;
-    }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
 
-    /* Content Slides */
-    h2 {
-      font-size: 56px;
-      font-weight: 700;
-      margin-bottom: 60px;
-      background: linear-gradient(135deg, #fff 0%, #ccc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+        .team-member {
+            background: rgba(255,255,255,0.05);
+            padding: 12px;
+            border-radius: 16px;
+            font-size: clamp(14px, 1.6vw, 20px);
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
-    h3 {
-      font-size: 36px;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 30px;
-      margin-top: 40px;
-    }
+        /* Section Headers */
+        .section-header {
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%);
+            align-items: center;
+            text-align: center;
+        }
 
-    .okr-list {
-      list-style: none;
-    }
+        .section-number {
+            font-size: 200px;
+            font-weight: 900;
+            opacity: 0.1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
 
-    .okr-list li {
-      margin-bottom: 28px;
-      padding-left: 40px;
-      position: relative;
-      font-size: 26px;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.8);
-    }
+        .section-title {
+            font-size: clamp(36px, 4.5vw, 56px);
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+        }
 
-    .okr-list li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: rgba(255, 255, 255, 0.4);
-      font-weight: 600;
-    }
+        .section-subtitle {
+            font-size: clamp(18px, 2vw, 26px);
+            color: rgba(255,255,255,0.5);
+            font-weight: 300;
+        }
 
-    .highlight {
-      color: #fff;
-      font-weight: 600;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-      padding: 2px 12px;
-      border-radius: 8px;
-      display: inline-block;
-    }
+        /* Content Slides */
+        h2 {
+            font-size: clamp(28px, 3.5vw, 42px);
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    /* Timeline Slide */
-    .timeline-container {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
+        h3 {
+            font-size: clamp(20px, 2.5vw, 28px);
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+            margin-top: 25px;
+        }
 
-    .timeline-item {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-    }
+        .okr-list {
+            list-style: none;
+        }
 
-    .timeline-date {
-      min-width: 280px;
-      font-size: 28px;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.5);
-    }
+        .okr-list li {
+            margin-bottom: 16px;
+            padding-left: 30px;
+            position: relative;
+            font-size: clamp(16px, 1.8vw, 20px);
+            line-height: 1.5;
+            color: rgba(255,255,255,0.8);
+        }
 
-    .timeline-content {
-      flex: 1;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 30px;
-      border-radius: 24px;
-      font-size: 28px;
-      border-left: 4px solid rgba(255, 255, 255, 0.3);
-      position: relative;
-    }
+        .okr-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: rgba(255,255,255,0.4);
+            font-weight: 600;
+        }
 
-    .timeline-content::before {
-      content: '';
-      width: 16px;
-      height: 16px;
-      background: #fff;
-      border-radius: 50%;
-      position: absolute;
-      left: -10px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+        .highlight {
+            color: #fff;
+            font-weight: 600;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            padding: 2px 12px;
+            border-radius: 8px;
+            display: inline-block;
+        }
 
-    /* Grid Layout */
-    .objectives-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
-    }
+        /* Timeline Slide */
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
 
-    .objective-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 32px;
-      padding: 40px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
 
-    .objective-card h3 {
-      font-size: 32px;
-      margin-bottom: 25px;
-      color: #fff;
-    }
+        .timeline-date {
+            min-width: 180px;
+            font-size: clamp(18px, 2vw, 24px);
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+        }
 
-    .objective-card ul {
-      list-style: none;
-    }
+        .timeline-content {
+            flex: 1;
+            background: rgba(255,255,255,0.05);
+            padding: 18px;
+            border-radius: 16px;
+            font-size: clamp(18px, 2vw, 24px);
+            border-left: 4px solid rgba(255,255,255,0.3);
+            position: relative;
+        }
 
-    .objective-card li {
-      font-size: 22px;
-      line-height: 1.6;
-      margin-bottom: 16px;
-      padding-left: 28px;
-      position: relative;
-      color: rgba(255, 255, 255, 0.75);
-    }
+        .timeline-content::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
 
-    .objective-card li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: rgba(255, 255, 255, 0.4);
-    }
+        /* Grid Layout */
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
 
-    /* Footer */
-    .slide-footer {
-      position: absolute;
-      bottom: 40px;
-      right: 60px;
-      font-size: 18px;
-      color: rgba(255, 255, 255, 0.3);
-      font-weight: 500;
-    }
+        .objective-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
-    .page-number {
-      position: absolute;
-      bottom: 40px;
-      left: 60px;
-      font-size: 18px;
-      color: rgba(255, 255, 255, 0.3);
-    }
+        .objective-card h3 {
+            font-size: clamp(18px, 2vw, 24px);
+            margin-bottom: 15px;
+            color: #fff;
+            margin-top: 0;
+        }
 
-    @media print {
-      .slide {
-        page-break-after: always;
-      }
-    }
-  </style>
+        .objective-card ul {
+            list-style: none;
+        }
+
+        .objective-card li {
+            font-size: clamp(14px, 1.5vw, 18px);
+            line-height: 1.4;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            color: rgba(255,255,255,0.75);
+        }
+
+        .objective-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Footer */
+        .slide-footer {
+            position: absolute;
+            bottom: 40px;
+            right: 60px;
+            font-size: 18px;
+            color: rgba(255,255,255,0.3);
+            font-weight: 500;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 40px;
+            left: 60px;
+            font-size: 18px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* Print styles for PDF generation */
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 0;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .slide {
+                width: 297mm;
+                height: 210mm;
+                page-break-after: always;
+                page-break-inside: avoid;
+                padding: 10mm;
+                box-sizing: border-box;
+            }
+
+            .slide-content {
+                max-width: none;
+                width: 100%;
+                height: 100%;
+                padding: 30px;
+            }
+
+            .slide:last-child {
+                page-break-after: auto;
+            }
+
+            /* Ensure fonts are readable in PDF */
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <!-- Slide 1: Title -->
-  <div class="slide title-slide">
-    <div class="slide-content">
-      <h1>Video Production<br>Option E</h1>
-      <div class="subtitle">OKR Presentation 2025/2026</div>
-      <div class="team-grid">
-        <div class="team-member">Laura Strobl</div>
-        <div class="team-member">Filippo Ciattoni</div>
-        <div class="team-member">Roberta Chiarenza</div>
-        <div class="team-member">Raphael Giraud</div>
-      </div>
+    <!-- Slide 1: Title -->
+    <div class="slide title-slide">
+        <div class="slide-content">
+            <h1>Video Production<br>Option E</h1>
+            <div class="subtitle">OKR Presentation 2025</div>
+            <div class="team-grid">
+              <div class="team-member">Laura Strobl</div>
+              <div class="team-member">Filippo Ciattoni</div>
+              <div class="team-member">Roberta Chiarenza</div>
+              <div class="team-member">Raphael Giraud</div>
+            </div>
+        </div>
+        <div class="page-number">1</div>
     </div>
-    <div class="page-number">1</div>
-  </div>
 
-  <!-- Slide 2: Overview -->
-  <div class="slide section-header">
-    <div class="slide-content">
-      <div class="section-number">OKR</div>
-      <h2 class="section-title">Our Objectives</h2>
-      <div class="section-subtitle">Three Key Focus Areas</div>
+    <!-- Slide 2: Overview -->
+    <div class="slide section-header">
+        <div class="slide-content">
+            <div class="section-number">OKR</div>
+            <h2 class="section-title">Our Objectives</h2>
+            <div class="section-subtitle">Three Key Focus Areas</div>
+        </div>
+        <div class="page-number">2</div>
     </div>
-    <div class="page-number">2</div>
-  </div>
 
-  <!-- Slide 3: Technical Skills -->
-  <div class="slide">
-    <div class="slide-content">
-      <h2>1. Technical Skills Development</h2>
-      <ul class="okr-list">
-        <li>Collect and practice with videomaking equipment for <span class="highlight">10+ hours</span> before Berlin
-          Trip</li>
-        <li>Specialize in assigned roles: filmmakers, editors, coordinators</li>
-        <li>Dedicate <span class="highlight">1 hour weekly</span> to online tutorials</li>
-        <li>Organize <span class="highlight">one trial filming session</span> before Berlin to test equipment and define
-          storytelling</li>
-      </ul>
+    <!-- Slide 3: Technical Skills -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>1. Technical Skills Development</h2>
+            <ul class="okr-list">
+                <li>Collect and practice with videomaking equipment for <span class="highlight">10+ hours</span> before Berlin Trip</li>
+                <li>Specialize in assigned roles: filmmakers, editors, coordinators</li>
+                <li>Dedicate <span class="highlight">1 hour weekly</span> to online tutorials</li>
+                <li>Organize <span class="highlight">one trial filming session</span> before Berlin to test equipment and define storytelling</li>
+            </ul>
+        </div>
+        <div class="slide-footer">Video Production Option E</div>
+        <div class="page-number">3</div>
     </div>
-    <div class="slide-footer">Video Production Option E</div>
-    <div class="page-number">3</div>
-  </div>
 
-  <!-- Slide 4: Video Engagement -->
-  <div class="slide">
-    <div class="slide-content">
-      <h2>2. Video Engagement Strategy</h2>
-      <h3>Creating Buzz & Boosting Enrollment</h3>
-      <ul class="okr-list">
-        <li>Achieve minimum <span class="highlight">7% engagement rate</span> across YouTube and Instagram</li>
-        <li>Collect <span class="highlight">one voice-over weekly</span> from special guests at events</li>
-        <li>Collaborate with <span class="highlight">2+ community groups</span> through Mid-Term peer questionnaire</li>
-        <li>Gather additional footage from colleagues</li>
-      </ul>
+    <!-- Slide 4: Video Engagement -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>2. Video Engagement Strategy</h2>
+            <h3>Creating Buzz & Boosting Enrollment</h3>
+            <ul class="okr-list">
+                <li>Achieve minimum <span class="highlight">7% engagement rate</span> across YouTube and Instagram</li>
+                <li>Collect <span class="highlight">one voice-over weekly</span> from special guests at events</li>
+                <li>Collaborate with <span class="highlight">2+ community groups</span> through Mid-Term peer questionnaire</li>
+                <li>Gather additional footage from colleagues</li>
+            </ul>
+        </div>
+        <div class="slide-footer">Video Production Option E</div>
+        <div class="page-number">4</div>
     </div>
-    <div class="slide-footer">Video Production Option E</div>
-    <div class="page-number">4</div>
-  </div>
 
-  <!-- Slide 5: Strategic Approach -->
-  <div class="slide">
-    <div class="slide-content">
-      <h2>3. Strategic Framework</h2>
-      <ul class="okr-list">
-        <li>Analyze ESCP brand identity on social media</li>
-        <li>Apply <span class="highlight">3+ techniques</span> per video (Close-ups, Medium shots, Establishing shots,
-          Extreme Wide Shots)</li>
-        <li>Create editorial plan with deliverables:
-          <ul style="margin-top: 20px; list-style: none;">
-            <li style="margin-left: 40px;"><span class="highlight">1-minute video</span> on Improbable Seminar</li>
-            <li style="margin-left: 40px;"><span class="highlight">2-minute video</span> on Berlin Trip</li>
-            <li style="margin-left: 40px;"><span class="highlight">5-minute video</span> covering best Option E
-              moments</li>
-          </ul>
-        </li>
-        <li>Implement peer review system: <span class="highlight">2 peers</span> review each video, target <span
-            class="highlight">7/10</span> on creativity & clarity</li>
-      </ul>
+    <!-- Slide 5: Strategic Approach -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>3. Strategic Framework</h2>
+            <ul class="okr-list">
+                <li>Analyze ESCP brand identity on social media</li>
+                <li>Apply <span class="highlight">3+ techniques</span> per video (Close-ups, Medium shots, Establishing shots, Extreme Wide Shots)</li>
+                <li>Create editorial plan with deliverables:
+                    <ul style="margin-top: 20px; list-style: none;">
+                        <li style="margin-left: 30px;"><span class="highlight">1-minute video</span> on Improbable Seminar</li>
+                        <li style="margin-left: 30px;"><span class="highlight">2-minute video</span> on Berlin Trip</li>
+                        <li style="margin-left: 30px;"><span class="highlight">5-minute video</span> covering best Option E moments</li>
+                    </ul>
+                </li>
+                <li>Implement peer review system: <span class="highlight">2 peers</span> review each video, target <span class="highlight">7/10</span> on creativity & clarity</li>
+            </ul>
+        </div>
+        <div class="slide-footer">Video Production Option E</div>
+        <div class="page-number">5</div>
     </div>
-    <div class="slide-footer">Video Production Option E</div>
-    <div class="page-number">5</div>
-  </div>
 
-  <!-- Slide 6: Timeline -->
-  <div class="slide">
-    <div class="slide-content">
-      <h2>Project Timeline</h2>
-      <div class="timeline-container">
-        <div class="timeline-item">
-          <div class="timeline-date">Mid-September</div>
-          <div class="timeline-content">Option E Begins</div>
+    <!-- Slide 6: Timeline -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Project Timeline</h2>
+            <div class="timeline-container">
+              <div class="timeline-item">
+                  <div class="timeline-date">Mid-September</div>
+                  <div class="timeline-content">Option E Begins</div>
+              </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">September 17</div>
+                    <div class="timeline-content">Art Thinking Session (video 1)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">October 19-24</div>
+                    <div class="timeline-content">Berlin Trip (video 2)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">December 11</div>
+                    <div class="timeline-content">Option E Concludes (video 3)</div>
+                </div>
+            </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-date">September 17</div>
-          <div class="timeline-content">Art Thinking Session (Video 1)</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">October 19-24</div>
-          <div class="timeline-content">Berlin Trip (Video 2)</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">December 11</div>
-          <div class="timeline-content">Option E Concludes (Video 3)</div>
-        </div>
-      </div>
+        <div class="slide-footer">Video Production Option E</div>
+        <div class="page-number">6</div>
     </div>
-    <div class="slide-footer">Video Production Option E</div>
-    <div class="page-number">6</div>
-  </div>
 
-  <!-- Slide 7: Success Metrics -->
-  <div class="slide">
-    <div class="slide-content">
-      <h2>Success Metrics</h2>
-      <div class="objectives-grid">
-        <div class="objective-card">
-          <h3>Skill Development</h3>
-          <ul>
-            <li>10+ hours equipment practice</li>
-            <li>1 hour weekly tutorials</li>
-            <li>Role specialization achieved</li>
-          </ul>
+    <!-- Slide 7: Success Metrics -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Success Metrics</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <h3>Skill Development</h3>
+                    <ul>
+                        <li>10+ hours equipment practice</li>
+                        <li>1 hour weekly tutorials</li>
+                        <li>Role specialization achieved</li>
+                    </ul>
+                </div>
+                <div class="objective-card">
+                    <h3>Engagement Targets</h3>
+                    <ul>
+                        <li>7% engagement rate minimum</li>
+                        <li>Weekly guest voice-overs</li>
+                        <li>2+ group collaborations</li>
+                    </ul>
+                </div>
+                <div class="objective-card">
+                    <h3>Content Delivery</h3>
+                    <ul>
+                        <li>3 professional videos produced</li>
+                        <li>3+ techniques per video</li>
+                        <li>ESCP brand alignment</li>
+                    </ul>
+                </div>
+                <div class="objective-card">
+                    <h3>Quality Assurance</h3>
+                    <ul>
+                        <li>2 peer reviews per video</li>
+                        <li>7/10 creativity & clarity score</li>
+                        <li>Continuous feedback integration</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="objective-card">
-          <h3>Engagement Targets</h3>
-          <ul>
-            <li>7% engagement rate minimum</li>
-            <li>Weekly guest voice-overs</li>
-            <li>2+ group collaborations</li>
-          </ul>
-        </div>
-        <div class="objective-card">
-          <h3>Content Delivery</h3>
-          <ul>
-            <li>3 professional videos produced</li>
-            <li>3+ techniques per video</li>
-            <li>ESCP brand alignment</li>
-          </ul>
-        </div>
-        <div class="objective-card">
-          <h3>Quality Assurance</h3>
-          <ul>
-            <li>2 peer reviews per video</li>
-            <li>7/10 creativity & clarity score</li>
-            <li>Continuous feedback integration</li>
-          </ul>
-        </div>
-      </div>
+        <div class="slide-footer">Video Production Option E</div>
+        <div class="page-number">7</div>
     </div>
-    <div class="slide-footer">Video Production Option E</div>
-    <div class="page-number">7</div>
-  </div>
 
-  <!-- Slide 8: Thank You -->
-  <div class="slide section-header">
-    <div class="slide-content">
-      <h2 class="section-title">Ready to Create</h2>
-      <div class="section-subtitle">Video Production Option E</div>
+    <!-- Slide 8: Thank You -->
+    <div class="slide section-header">
+        <div class="slide-content">
+            <h2 class="section-title">Ready to Create</h2>
+            <div class="section-subtitle">Video Production Option E</div>
+        </div>
+        <div class="page-number">8</div>
     </div>
-    <div class="page-number">8</div>
-  </div>
 </body>
-
 </html>
