@@ -315,6 +315,40 @@
         }
 
         /* Print styles for PDF generation */
+        /* Download button */
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 12px 20px;
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+            transition: all 0.2s ease;
+        }
+
+        .download-btn:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .download-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
         @media print {
             @page {
                 size: A4 landscape;
@@ -346,6 +380,11 @@
                 page-break-after: auto;
             }
 
+            /* Hide download button in print */
+            .download-btn {
+                display: none;
+            }
+
             /* Ensure fonts are readable in PDF */
             * {
                 -webkit-print-color-adjust: exact;
@@ -356,6 +395,16 @@
     </style>
 </head>
 <body>
+    <!-- Download button -->
+    <a href="video-option-e-okrs.pdf" download class="download-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download PDF
+    </a>
+
     <!-- Slide 1: Title -->
     <div class="slide title-slide">
         <div class="slide-content">
@@ -402,7 +451,7 @@
             <h2>2. Video Engagement Strategy</h2>
             <h3>Creating Buzz & Boosting Enrollment</h3>
             <ul class="okr-list">
-                <li>Achieve minimum <span class="highlight">7% engagement rate</span> across YouTube and Instagram</li>
+                <li>Achieve minimum <span class="highlight">7% engagement rate</span> across YouTube and Instagram (likes + comments + shares / total views) </li>
                 <li>Collect <span class="highlight">one voice-over weekly</span> from special guests at events</li>
                 <li>Collaborate with <span class="highlight">2+ community groups</span> through Mid-Term peer questionnaire</li>
                 <li>Gather additional footage from colleagues</li>
